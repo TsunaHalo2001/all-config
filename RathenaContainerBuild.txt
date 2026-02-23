@@ -20,3 +20,39 @@ Then we navigate to the folder and run the build script:
 cd rathena-tests
 make clean
 make server
+
+After the build, compress the server folder into a tar.gz file and upload to releases on GitHub
+Then we can exit the container:
+exit
+
+Next we enter to GCloud console:
+gcloud compute ssh ro-server
+
+Next enter on root:
+sudo -i
+
+Then we navigate to the folder previous to rathena-tests:
+cd /home/joan01benyamin/home/user/
+
+Then we download the tar.gz file from GitHub releases:
+wget https://github.com/TsunaHalo2001/rathena-tests/releases/download/[RELEASE_VERSION]/rathena-tests.tar.gz
+
+Then we extract the tar.gz file:
+tar -xvzf rathena-tests.tar.gz
+
+Then we navigate to the rathena-tests folder:
+cd rathena-tests
+
+Then we reload all the binaries executed from each Screen session:
+screen -r login
+screen -r char
+screen -r map
+screen -r web
+
+We Ctrl+C on each session to stop the server, then we run the new binaries:
+./login-server
+./char-server
+./map-server
+./web-server
+
+Then we Ctrl+A then D to detach from each session.
