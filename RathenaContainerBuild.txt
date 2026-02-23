@@ -1,0 +1,22 @@
+First we open a terminal on the folder designated, then we run the following command to start a container with the current folder mounted as a volume:
+docker run -it --rm \
+  -v "$(pwd):/work" \
+  -w /work \
+  marketplace.gcr.io/google/debian12:latest \
+  bash
+
+Then we install the necessary dependencies:
+apt update
+apt install -y build-essential git
+apt install zlib1g-dev
+apt install libmariadb-dev 
+apt install libmariadbclient-dev-compat
+
+
+Then we clone the repository:
+git clone https://github.com/TsunaHalo2001/rathena-tests.git
+
+Then we navigate to the folder and run the build script:
+cd rathena-tests
+make clean
+make server
