@@ -56,3 +56,7 @@ We Ctrl+C on each session to stop the server, then we run the new binaries:
 ./web-server
 
 Then we Ctrl+A then D to detach from each session.
+
+Finally we return to user folder and delete the tar.gz file:
+cd /home/joan01benyamin/home/user/
+rm rathena-tests.tar.gz
