@@ -11,10 +11,14 @@ apt install -y build-essential git
 apt install zlib1g-dev
 apt install libmariadb-dev 
 apt install libmariadbclient-dev-compat
-
+apt install libpcre3-dev
 
 Then we clone the repository:
 git clone https://github.com/TsunaHalo2001/rathena-tests.git
+
+Or if we have already cloned the repository, we can pull the latest changes:
+cd rathena-tests
+git pull origin master
 
 Then we navigate to the folder and run the build script:
 cd rathena-tests
