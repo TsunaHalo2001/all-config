@@ -10,4 +10,4 @@ Linux native game
 game-performance prime-run %command%
 
 Terraria no sound fix
-SDL_AUDIODRIVER=alsa game-performance %command%
+SDL_AUDIODRIVER=alsa game-performance prime-run %command%
