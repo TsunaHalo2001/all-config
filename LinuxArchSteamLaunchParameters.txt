@@ -3,6 +3,8 @@ VKD3D_FEATURE_LEVEL=12_2 PROTON_ENABLE_WAYLAND=1 game-performance prime-run %com
 
 Need prime-run but can't use Wayland
 VKD3D_FEATURE_LEVEL=12_2 game-performance prime-run %command%
+For:
+    EVE Online
 
 Linux native game
 game-performance prime-run %command%
