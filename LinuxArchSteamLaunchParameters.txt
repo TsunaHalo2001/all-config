@@ -3,8 +3,10 @@ VKD3D_FEATURE_LEVEL=12_2 PROTON_ENABLE_WAYLAND=1 game-performance prime-run %com
 
 Need prime-run but can't use Wayland
 VKD3D_FEATURE_LEVEL=12_2 game-performance prime-run %command%
-For:
-    Acer Nitro V16 AMD + Nvidia
+
+For Acer Nitro V16
+PROTON_ENABLE_WAYLAND=1 game-performance %command%
+game-performance prime-run %command%
 
 Linux native game
 game-performance prime-run %command%
