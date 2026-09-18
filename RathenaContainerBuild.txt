@@ -1,9 +1,8 @@
 First we open a terminal on the folder designated, then we run the following command to start a container with the current folder mounted as a volume:
 docker run -it --rm \
-  -v "$(pwd):/work" \
-  -w /work \
-  marketplace.gcr.io/google/debian12:latest \
-  bash
+  -v /TsunaDomain/Proyectos/Container/ServerRO:/output \
+  -w /src \
+  debian:bookworm bash
 
 Then we install the necessary dependencies:
 apt update
@@ -16,38 +15,43 @@ apt install libpcre3-dev
 Then we clone the repository:
 git clone https://github.com/TsunaHalo2001/rathena-tests.git
 
-Or if we have already cloned the repository, we can pull the latest changes:
+# Or if we have already cloned the repository, we can pull the latest changes:
 cd rathena-tests
 git pull origin master
 
-Then we navigate to the folder and run the build script:
+# Then we navigate to the folder and run the build script:
 cd rathena-tests
+./configure
 make clean
 make server
 
-After the build, compress the server folder into a tar.gz file and upload to releases on GitHub
+# After the build, compress the server folder into a tar.gz file and upload to releases on GitHub
+cd ..
+tar -czvf rathena-tests.tar.gz rathena-tests
+cp rathena-tests.tar.gz /output
+
 Then we can exit the container:
 exit
 
 Next we enter to GCloud console:
 gcloud compute ssh ro-server
 
-Next enter on root:
+# Next enter on root:
 sudo -i
 
-Then we navigate to the folder previous to rathena-tests:
+# Then we navigate to the folder previous to rathena-tests:
 cd /home/joan01benyamin/home/user/
 
-Then we download the tar.gz file from GitHub releases:
+# Then we download the tar.gz file from GitHub releases:
 wget https://github.com/TsunaHalo2001/rathena-tests/releases/download/[RELEASE_VERSION]/rathena-tests.tar.gz
 
-Then we extract the tar.gz file:
+# Then we extract the tar.gz file:
 tar -xvzf rathena-tests.tar.gz
 
-Then we navigate to the rathena-tests folder:
+# Then we navigate to the rathena-tests folder:
 cd rathena-tests
 
-Then we reload all the binaries executed from each Screen session:
+# Then we reload all the binaries executed from each Screen session:
 screen -r login
 screen -r char
 screen -r map
@@ -61,6 +65,6 @@ We Ctrl+C on each session to stop the server, then we run the new binaries:
 
 Then we Ctrl+A then D to detach from each session.
 
-Finally we return to user folder and delete the tar.gz file:
+# Finally we return to user folder and delete the tar.gz file:
 cd /home/joan01benyamin/home/user/
 rm rathena-tests.tar.gz
