@@ -1,17 +1,6 @@
-Need prime-run for Nvidia card and all the tweaks:
-VKD3D_FEATURE_LEVEL=12_2 PROTON_ENABLE_WAYLAND=1 game-performance prime-run %command%
+# Acer Nitro V16:
+## General:
+PROTON_ENABLE_NVAPI=1 gamemoderun %command%
 
-Need prime-run but can't use Wayland
-VKD3D_FEATURE_LEVEL=12_2 game-performance prime-run %command%
-
-For Acer Nitro V16
-PROTON_ENABLE_WAYLAND=1 game-performance %command%
-game-performance prime-run %command%
-PROTON_ENABLE_NVAPI=1 PROTON_DLSS_UPGRADE=1 DXVK_NVAPI_DRS_SETTINGS="ngx_dlss_sr_override_render_preset_selection=render_preset_m" VKD3D_FEATURE_LEVEL=12_2 gamemoderun %command%
-PROTON_ENABLE_NVAPI=1 PROTON_DLSS_UPGRADE=1 DXVK_NVAPI_DRS_SETTINGS="ngx_dlss_sr_override_render_preset_selection=render_preset_m" gamemoderun %command%
-
-Linux native game
-game-performance prime-run %command%
-
-Terraria no sound fix
+# Terraria no sound fix
 SDL_AUDIODRIVER=alsa game-performance prime-run %command%
